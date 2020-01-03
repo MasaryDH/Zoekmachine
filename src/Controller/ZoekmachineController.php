@@ -4,9 +4,10 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ZoekmachineController{
+class ZoekmachineController extends AbstractController {
     /**
      * @Route("/")
      */
@@ -30,7 +31,9 @@ class ZoekmachineController{
     /**
      * @Route("/zoekmachine")
      */
-    public function show(){
-        return new Response("Test zoekmachine Gent");
+    public function show($slug){
+        return $this->render('zoekmachine/show.html.twig', [
+            'title' => ucwords(str_replace('-'), '', $slug)
+        ]);
     }
 }
