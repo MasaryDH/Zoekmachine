@@ -1,17 +1,26 @@
-# 1. Zoekmachine Offices D&G
+# Zoekmachine Offices D&G
 
-start server (console): php bin/console server:run
+#### Algemeen
+start server (console)
+```
+php bin/console server:run
+```
 
-DOCTRINE
--
-- Edit DATABASE_URL in .env to use your own database
+#### Doctrine
+Edit DATABASE_URL in .env to use your own database
 
-# 2. Notities (Sam)
+## NOTITIES (Sam)
 
 - How to get Entity class with an already existing database: https://symfony.com/doc/current/doctrine/reverse_engineering.html
 - error: enum requested   - https://stackoverflow.com/questions/54547906/unknown-database-type-enum-requested-doctrine-dbal-platforms-mysql57platform-ma
 
-SYMFONY
--
-- {{ }} say something tag (because it prints)
-- {% %} do something tag
+#### SYMFONY
+```
+{{ }}
+```
+say something tag (because it prints)
+
+```
+{% %}
+```
+do something tag
