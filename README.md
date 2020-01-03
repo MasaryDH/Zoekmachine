@@ -1,4 +1,4 @@
-# 1. Zoekmachine Notities (Sam)
+# 1. Zoekmachine Offices D&G
 
 start server (console): php bin/console server:run
 
