@@ -15,12 +15,6 @@ Edit DATABASE_URL in .env to use your own database
 - error: enum requested   - https://stackoverflow.com/questions/54547906/unknown-database-type-enum-requested-doctrine-dbal-platforms-mysql57platform-ma
 
 ### Symfony|notities
-```
-{{ }}
-```
-say something tag (because it prints)
-
-```
-{% %}
-```
-do something tag
+- {{ }} say something tag (because it prints)
+- {% %} do something tag
+- {# #} comments

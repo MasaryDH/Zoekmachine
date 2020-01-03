@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Offices;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,11 +30,21 @@ class ZoekmachineController extends AbstractController {
     }
 
     /**
-     * @Route("/zoekmachine")
+     * @Route("/zoekmachine/{slug}")
      */
     public function show($slug){
+        $repository = $this->getDoctrine()->getRepository(Offices::class);
+
+        $offices = $repository->findAll();
+        
+//        // Specific search trough database
+//        $offices = $repository->findBy([
+//            'city' => 'GENT',
+//        ]);
+
         return $this->render('zoekmachine/show.html.twig', [
-            'title' => ucwords(str_replace('-'), '', $slug)
+            'title' => ucwords(str_replace('-','',$slug)),
+            'offices' => $offices,
         ]);
     }
 }
