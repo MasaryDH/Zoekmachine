@@ -1,7 +1,5 @@
-# Zoekmachine
+# Zoekmachine Notities (Sam)
 
-NOTES (Sam)
---------------------
 start server (console): php bin/console server:run
 
 DOCTRINE
