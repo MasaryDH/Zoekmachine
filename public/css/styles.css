@@ -21,6 +21,11 @@ textarea:focus, input:focus{outline: none;}
     box-shadow: 10px 10px 39px -10px rgba(0,0,0,0.75);
 }
 
+sub{
+    margin-top: 8px;
+    color: #9a9a9a;
+}
+
 /* ####### TITLE CONTAINER ####### */
 
 .titleContainer h1{
