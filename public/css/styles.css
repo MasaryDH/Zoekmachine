@@ -63,6 +63,7 @@ textarea:focus, input:focus{outline: none;}
     margin: 10px 0 10px 0 ;
     text-transform: capitalize;
     border: 1px black dashed;
+    line-height: 18px;
 }
 
 /* ####### SEARCHBAR #######*/

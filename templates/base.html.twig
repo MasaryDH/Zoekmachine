@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            {# CSS #}
             <link rel="stylesheet" href="/css/styles.css">
+            {# Favicon #}
+            <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
         {% endblock %}
     </head>
     <body>
@@ -17,7 +19,9 @@
             <script>
                 $(document).ready(function() {
                     $('#search').keyup(function(){
+                        // value van inputfield
                         var searchText = $('#search').val();
+                        // path naar waar de ajax gestuurd moet worden
                         var requestPath = '{{ path("app_zoekmachine_show")}}';
                             $.ajax({
                                 url: requestPath,
@@ -28,8 +32,11 @@
                                 dataType: "json",
                                 success: function (data) {
                                     console.log(data);
+                                    // json omzetten naar string
                                     var result = JSON.stringify(data, undefined, 2);
-                                    var result2 = result.replace("'\\\"", "<br>").replace("'\\\"]\"", '').replace("\"[\\\"'", '').replace(",\\\"'", '').replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>");
+                                    // cleanen van json string
+                                    var result2 = result.replace("'\\\"", "<br>").replace("'\\\"]\"", '').replace("\"[\\\"'", '').replace(",\\\"'", '').replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>");
+                                    // cleanen van json string
                                     var result3 = result2.split(',').join(', ');
                                     $('.search').html(result3.toLowerCase());
                                 },

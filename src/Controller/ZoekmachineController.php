@@ -12,14 +12,21 @@ use Symfony\Component\HttpFoundation\Request;
 class ZoekmachineController extends AbstractController {
     private function sortOffices($searchedCity){
 
-// ####### DATABANK OPHALEN #######
+// ####### DATABANK #######
 
+//      locale databank ophalen
         $repository = $this->getDoctrine()->getRepository(Offices::class);
         $offices = $repository->findAll();
 
 
 // ####### STEDEN #######
 
+//      ## onderzoek steden API
+//      $get_data = file_get_contents('http://api.geoname.org/search?q=gent&country=belgium');
+//      $response = json_decode($get_data, true);
+//      var_dump($response);
+
+//      Alle mogelijke opties van inputvalues
         switch($searchedCity) {
             case "Gent":
                 $inputLat = 51.054633;
@@ -77,27 +84,27 @@ class ZoekmachineController extends AbstractController {
 
 // ####### RADIUS BEREKENEN #######
 
-//      $get_data = file_get_contents('http://api.geoname.org/search?q=gent&country=belgium');
-//      $response = json_decode($get_data, true);
-//      var_dump($response);
         $radiusArray = array();
         foreach($offices as $office) {
+//          radius berekenen
             $radius = pow((pow(($office->getLongitude()-$inputLong),2) + pow(($office->getLatitude()-$inputLat),2)), 0.5);
             $radiusArray[$office->getId()] = $radius;
         };
         asort($radiusArray);
-        $sortedOffices = array_slice($radiusArray, 0, 5, true);
-        $sortedAdresses = array();
-        foreach($sortedOffices as $key => $value){
+//      aantal offices tonen
+        $sortedRadiusAray = array_slice($radiusArray, 0, 7, true);
+        $sortedOffices = array();
+        foreach($sortedRadiusAray as $key => $value){
             foreach($offices as $office) {
+//              straat en stad ophalen van offices met zelfde id als longitude en latitude
                 if ($office->getId() == $key) {
                     $officeString= "'".$office->getStreet().",".$office->getCity()."'";
-                    array_push($sortedAdresses, $officeString);
+                    array_push($sortedOffices, $officeString);
                     break;
                 };
             };
         };
-        return $sortedAdresses;
+        return $sortedOffices;
     }
 
 // ####### SHOW SEARCHBAR #######
@@ -109,9 +116,10 @@ class ZoekmachineController extends AbstractController {
      */
     public function show(Request $request){
         if ($request->isXmlHttpRequest()) {
-            $test1 = $request->request->get('searchOffice');
-            $test2 = json_encode($this->sortOffices($test1));
-            return new JsonResponse($test2);
+//          Inputfield value
+            $inputfieldValue = $request->request->get('searchOffice');
+            $officeSorting = json_encode($this->sortOffices($inputfieldValue));
+            return new JsonResponse($officeSorting);
         } else {
             return $this->render('zoekmachine/show.html.twig', [
                 'title' => 'Offices search',
