@@ -1,8 +1,4 @@
-## a route
-#index:
-#    path: /
-#    controller: App\Controller\ZoekmachineController::homepage
-#
+## Ajax route
 app_zoekmachine_show:
   path: /zoekmachine
   controller: App\Controller\ZoekmachineController::show
