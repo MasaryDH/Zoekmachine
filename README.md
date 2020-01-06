@@ -6,10 +6,14 @@ start server (console)
 php bin/console server:run
 ```
 ##
-- Er zijn al enkele steden toegevoegd onder andere: **Gent, Brugge, Antwerpen, Brussel, Hasselt, Kontich, Leuven, Luik, Bergen, Aarlen, Namen en Waver.** 
-Maar er kunen gemakkelijk steden toegevoegd worden in de ZoekmachineController.php
+- Er zijn al enkele steden en gemeenten toegevoegd onder andere: **Gent, Brugge, Antwerpen, Brussel, Hasselt, Kontich, Leuven, Luik, Bergen, Aarlen, Namen en Waver.** 
+Maar er kunnen gemakkelijk steden toegevoegd worden in de ZoekmachineController.php
+
+- Dit kan uitgebreid worden door middel van een **webservice API** zoals Geonames, Google Maps, Bing, ...
 
 - In het mapje **"Screenshots"** bevinden zich voorbeelden van hoe de zoekmachine eruit ziet
+
+- **Checkboxen** zijn toegevoegd maar zijn **nog niet actief**
 ##
 
 ### Doctrine
