@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Offices;
-use Psr\Container\ContainerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,14 +10,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ZoekmachineController extends AbstractController {
-
     private function sortOffices($searchedCity){
-        // DATABANK OPHALEN
+
+// ####### DATABANK OPHALEN #######
+
         $repository = $this->getDoctrine()->getRepository(Offices::class);
         $offices = $repository->findAll();
 
 
-        // STEDEN
+// ####### STEDEN #######
+
         switch($searchedCity) {
             case "Gent":
                 $inputLat = 51.054633;
@@ -45,23 +45,18 @@ class ZoekmachineController extends AbstractController {
                 $inputLat = 50.937960;
                 $inputLong = 5.306940;
                 break;
-            case "":
-                $inputLat = 0;
-                $inputLong = 0;
-                break;
         }
 
-//      RADIUS BEREKENEN
+// ####### RADIUS BEREKENEN #######
 
-//        $get_data = file_get_contents('http://api.geoname.org/search?q=gent&country=belgium');
-//        $response = json_decode($get_data, true);
-//        var_dump($response);
+//      $get_data = file_get_contents('http://api.geoname.org/search?q=gent&country=belgium');
+//      $response = json_decode($get_data, true);
+//      var_dump($response);
         $radiusArray = array();
         foreach($offices as $office) {
             $radius = pow((pow(($office->getLongitude()-$inputLong),2) + pow(($office->getLatitude()-$inputLat),2)), 0.5);
             $radiusArray[$office->getId()] = $radius;
-        }
-
+        };
         asort($radiusArray);
         $sortedOffices = array_slice($radiusArray, 0, 5, true);
         $sortedAdresses = array();
@@ -71,11 +66,13 @@ class ZoekmachineController extends AbstractController {
                     $officeString= "'".$office->getStreet().",".$office->getCity()."'";
                     array_push($sortedAdresses, $officeString);
                     break;
-                }
-            }
-        }
+                };
+            };
+        };
         return $sortedAdresses;
     }
+
+// ####### SHOW SEARCHBAR #######
 
     /**
      * @Route("/zoekmachine", methods={"POST, GET"})

@@ -7,64 +7,98 @@ html, body{
     flex-direction: column;
     font-family: Roboto;
     font-size: 12px;
+    background: linear-gradient(-135deg,#c850c0,#4158d0);
+    color: white;
 }
+
+textarea:focus, input:focus{outline: none;}
 
 .container, .titleContainer {
     width: 35%;
+    -webkit-box-shadow: 10px 10px 39px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 39px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 39px -10px rgba(0,0,0,0.75);
 }
 
-/* Title Container */
+/* ####### TITLE CONTAINER ####### */
 
 .titleContainer h1{
     margin: 10px;
     font-size: 15px;
+    height: 63%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .titleContainer{
-    border: 1px solid black;
+    height: 7%;
+    border-bottom: 1px solid black;
+    border-radius: 10px 10px 0 0;
+    background: #202020;
 }
 
-/* Search Container */
+/* ####### SEARCHED CONTAINER ####### */
 .container{
-    border: 1px solid black;
     border-top: unset;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: #343333;
+    border-radius: 0 0 10px 10px;
+    height: 41%;
 }
 
 .containerTitle{
     text-align: center;
 }
 
-input[id="search"]{
-    width: 76.5%;
-    padding: 10px;
-    font-size: 12px;
-    margin: 20px 0 0 0;
-}
-
-/* Searchbox */
-
 .search{
-    height: 100px;
+    height: 110px;
     width: 75%;
     display: flex;
     align-items: center;
     padding: 15px;
-    margin: 0 0 20px 0 ;
+    margin: 10px 0 10px 0 ;
     text-transform: capitalize;
-    border: 1px black dotted;
+    border: 1px black dashed;
 }
 
-/* Checkboxen */
+/* ####### SEARCHBAR #######*/
+
+input[id="search"]{
+    width: 76.5%;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 10px;
+    background: #343333;
+    color: white;
+    border: 1px solid black;
+    transition: border ease-in 0.3s;
+}
+
+input[id="search"]:focus{
+    border-radius: 10px;
+    border: 1px #2e43ff solid;
+    box-shadow: 0px 4px 5px -5px #2e43ff;
+}
+
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {color: rgb(203, 203, 203);opacity: 1; /* Firefox */}
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {color: rgb(203, 203, 203);}
+/* Microsoft Edge */
+::-ms-input-placeholder {color: rgb(203, 203, 203);}
+
+/* ####### CHECKBOZEN #######*/
 
 .checkboxen{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 85%;
+    margin: 10px 0;
 }
 
 .checkboxContainer:first-child{
@@ -81,7 +115,6 @@ input[id="search"]{
     display: block;
     position: relative;
     padding-left: 23px;
-    margin-bottom: 12px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -115,7 +148,7 @@ input[id="search"]{
 
 /* When the checkbox is checked, add a blue background */
 .checkboxContainer input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #2e43ff;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
