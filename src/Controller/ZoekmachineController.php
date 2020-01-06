@@ -45,6 +45,34 @@ class ZoekmachineController extends AbstractController {
                 $inputLat = 50.937960;
                 $inputLong = 5.306940;
                 break;
+            case "Kontich":
+                $inputLat = 51.124296;
+                $inputLong = 4.449704;
+                break;
+            case "Leuven":
+                $inputLat = 50.877699;
+                $inputLong = 4.703712;
+                break;
+            case "Luik":
+                $inputLat = 50.630499;
+                $inputLong = 5.586385;
+                break;
+            case "Bergen":
+                $inputLat = 50.460742;
+                $inputLong = 3.968991;
+                break;
+            case "Aarlen":
+                $inputLat = 49.677788;
+                $inputLong = 5.812560;
+                break;
+            case "Namen":
+                $inputLat = 50.476488;
+                $inputLong = 4.871265;
+                break;
+            case "Waver":
+                $inputLat = 50.715241;
+                $inputLong = 4.599856;
+                break;
         }
 
 // ####### RADIUS BEREKENEN #######
