@@ -5,9 +5,10 @@ start server (console)
 ```
 php bin/console server:run
 ```
-
+##
 Er zijn al enkele steden toegevoegd onder andere: Gent, Brugge, Antwerpen, Brussel, Hasselt, Kontich, Leuven, Luik, Bergen, Aarlen, Namen en Waver. 
 Maar er kunen gemakkelijk steden toegevoegd worden in de ZoekmachineController.php
+
 
 ### Doctrine
 Edit DATABASE_URL in .env to use your own database
