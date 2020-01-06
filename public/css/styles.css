@@ -178,3 +178,11 @@ input[id="search"]:focus{
     width: 2.5px;
     height: 5px;
 }
+
+/* ####### MEDIAQUERY PHONE #######*/
+
+@media only screen and (max-width: 768px){
+    .container, .titleContainer {
+        width: 50%;
+    }
+}
