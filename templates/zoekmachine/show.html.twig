@@ -2,8 +2,24 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 
-<h1>{{ title }}</h1>
-{% for office in offices %}
-    <li> {{ office.city }}: {{ office.latitude }} - {{ office.longitude }}</li>
-{% endfor %}
+<div class="titleContainer">
+    <h1>{{ title }}</h1>
+</div>
+<div class="container">
+        <input type="text" id="search" placeholder="Show offices in the neighborhood of..."><br>
+        <div class="checkboxen">
+            <label class="checkboxContainer">
+                <input type="checkbox" name="checkbox1">
+                <span class="checkmark"></span>
+                <p class="checkboxText">Open in weekends</p>
+            </label>
+            <label class="checkboxContainer">
+                <input type="checkbox" name="checkbox2">
+                <span class="checkmark"></span>
+                <p class="checkboxText">With Suport Desk</p>
+            </label>
+        </div>
+        <p class="search"></p>
+</div>
+
 {% endblock body %}

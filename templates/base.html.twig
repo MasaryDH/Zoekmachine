@@ -10,7 +10,35 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-            <script src="/js/styles.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#search').keyup(function(){
+                        var searchText = $('#search').val();
+                        var requestPath = '{{ path("app_zoekmachine_show")}}';
+                            $.ajax({
+                                url: requestPath,
+                                type: "POST",
+                                data: {
+                                    'searchOffice': searchText
+                                },
+                                dataType: "json",
+                                success: function (data) {
+                                    console.log(data);
+                                    var result = JSON.stringify(data, undefined, 2);
+                                    var result2 = result.replace("'\\\"", "<br>").replace("'\\\"]\"", '').replace("\"[\\\"'", '').replace(",\\\"'", '').replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>").replace("'\\\",\\\"'", "<br>");
+                                    var result3 = result2.split(',').join(', ');
+                                    $('.search').html(result3.toLowerCase());
+                                },
+                                error: function (data, xhr, thrownError) {
+                                    console.log(thrownError);
+                                    console.log(xhr.statusText);
+                                    console.log(data);
+                                }
+                            });
+                    });
+                });
+            </script>
         {% endblock %}
     </body>
 </html>

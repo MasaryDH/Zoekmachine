@@ -1,0 +1,144 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Roboto;
+    font-size: 12px;
+}
+
+.container, .titleContainer {
+    width: 35%;
+}
+
+/* Title Container */
+
+.titleContainer h1{
+    margin: 10px;
+    font-size: 15px;
+}
+
+.titleContainer{
+    border: 1px solid black;
+}
+
+/* Search Container */
+.container{
+    border: 1px solid black;
+    border-top: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerTitle{
+    text-align: center;
+}
+
+input[id="search"]{
+    width: 76.5%;
+    padding: 10px;
+    font-size: 12px;
+    margin: 20px 0 0 0;
+}
+
+/* Searchbox */
+
+.search{
+    height: 100px;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 0 0 20px 0 ;
+    text-transform: capitalize;
+    border: 1px black dotted;
+}
+
+/* Checkboxen */
+
+.checkboxen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+}
+
+.checkboxContainer:first-child{
+    padding-right: 15px;
+}
+
+.checkboxText{
+    padding: 0;
+    margin: 0;
+}
+
+/* The checkbox container */
+.checkboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 23px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 2.5px;
+    height: 6px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

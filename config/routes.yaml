@@ -3,3 +3,8 @@
 #    path: /
 #    controller: App\Controller\ZoekmachineController::homepage
 #
+app_zoekmachine_show:
+  path: /zoekmachine
+  controller: App\Controller\ZoekmachineController::show
+  requirements:
+    _method: POST
