@@ -9,7 +9,7 @@ php bin/console server:run
 - Er zijn al enkele steden toegevoegd onder andere: Gent, Brugge, Antwerpen, Brussel, Hasselt, Kontich, Leuven, Luik, Bergen, Aarlen, Namen en Waver. 
 Maar er kunen gemakkelijk steden toegevoegd worden in de ZoekmachineController.php
 
-- In het mapje "Screenshots" bevinden zich voorbeelden van hoe de zeokmachine eruit ziet
+- In het mapje "Screenshots" bevinden zich voorbeelden van hoe de zoekmachine eruit ziet
 ##
 
 ### Doctrine
